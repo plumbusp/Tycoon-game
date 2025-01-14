@@ -7,9 +7,11 @@ public class Tile : MonoBehaviour
     private Vector3 InitalScale;
 
     public SpriteRenderer SpriteRen;
+    private Color TargetColor;
     public Color HoverColor;
     [Range(0f, 1f)]
     public float HoverAlpha;
+    public Color PresedColor;
 
     private Color normalColor;
 
@@ -17,6 +19,9 @@ public class Tile : MonoBehaviour
     private bool CountBack = false;
     public float LerpSpeed;
     private float _final_t = 0;
+    private bool IsPressed;
+
+    public static Tile SelectedTile { get; private set; }
 
     private void Start()
     {
@@ -24,11 +29,16 @@ public class Tile : MonoBehaviour
         normalColor = SpriteRen.color;
 
         HoverColor.a = HoverAlpha;
+        TargetColor = HoverColor;
 
         InitalScale = transform.localScale;
     }
     void Update()
     {
+        SpriteRen.color = Color.Lerp(normalColor, TargetColor, _final_t);
+
+        if (IsPressed)
+            return;
         // Lerping color on hover
         if (MouseOver)
         {
@@ -42,7 +52,6 @@ public class Tile : MonoBehaviour
                 return;
             _final_t -= LerpSpeed;
         }
-        SpriteRen.color = Color.Lerp(normalColor, HoverColor, _final_t);
         transform.localScale = Vector3.Lerp(InitalScale, HoverScale, _final_t);
     }
 
@@ -54,4 +63,35 @@ public class Tile : MonoBehaviour
     {
         MouseOver = false;
     }
+    private void OnMouseDown()
+    {
+        if(SelectedTile == null)
+        {
+            SelectedTile = this;
+            Select();
+        }
+        else if(SelectedTile!= this)
+        {
+            SelectedTile.Desellect();
+            SelectedTile = this;
+            Select();
+        }
+            
+    }
+    public void Select()
+    {
+        TargetColor = PresedColor;
+        IsPressed = true;
+        transform.localScale = HoverScale;
+    }
+    public void Desellect()
+    {
+        TargetColor = HoverColor;
+        IsPressed = false;
+    }
+    //private void OnMouseUp()
+    //{
+    //    TargetColor = HoverColor;
+    //    IsPressed = false;
+    //}
 }
