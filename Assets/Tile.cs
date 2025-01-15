@@ -33,51 +33,28 @@ public class Tile : MonoBehaviour
 
         InitalScale = transform.localScale;
     }
-    void Update()
-    {
-        SpriteRen.color = Color.Lerp(normalColor, TargetColor, _final_t);
+    //void Update()
+    //{
+    //    SpriteRen.color = Color.Lerp(normalColor, TargetColor, _final_t);
 
-        if (IsPressed)
-            return;
-        // Lerping color on hover
-        if (MouseOver)
-        {
-            if (_final_t >= 1f) 
-                return;
-            _final_t += LerpSpeed;
-        }
-        else
-        {
-            if(_final_t <= 0f)
-                return;
-            _final_t -= LerpSpeed;
-        }
-        transform.localScale = Vector3.Lerp(InitalScale, HoverScale, _final_t);
-    }
+    //    if (IsPressed)
+    //        return;
+    //    // Lerping color on hover
+    //    if (MouseOver)
+    //    {
+    //        if (_final_t >= 1f) 
+    //            return;
+    //        _final_t += LerpSpeed;
+    //    }
+    //    else
+    //    {
+    //        if(_final_t <= 0f)
+    //            return;
+    //        _final_t -= LerpSpeed;
+    //    }
+    //    transform.localScale = Vector3.Lerp(InitalScale, HoverScale, _final_t);
+    //}
 
-    private void OnMouseEnter()
-    {
-        MouseOver = true;
-    }
-    private void OnMouseExit()
-    {
-        MouseOver = false;
-    }
-    private void OnMouseDown()
-    {
-        if(SelectedTile == null)
-        {
-            SelectedTile = this;
-            Select();
-        }
-        else if(SelectedTile!= this)
-        {
-            SelectedTile.Desellect();
-            SelectedTile = this;
-            Select();
-        }
-            
-    }
     public void Select()
     {
         TargetColor = PresedColor;
@@ -88,6 +65,7 @@ public class Tile : MonoBehaviour
     {
         TargetColor = HoverColor;
         IsPressed = false;
+        transform.localScale = InitalScale;
     }
     //private void OnMouseUp()
     //{
