@@ -21,18 +21,6 @@ public class AudioManager : MonoBehaviour
 
     private Dictionary<string, AudioClip> _audioClips;
 
-    private void Initialize()
-    {
-        _audioClips = new Dictionary<string, AudioClip>();
-        foreach (var musicObject in musicObjects)
-        {
-            _audioClips.Add(musicObject.musicType.ToString(), musicObject.clip);
-        }
-        foreach (var SFXObject in SFXObjects)
-        {
-            _audioClips.Add(SFXObject.sfxType.ToString(), SFXObject.clip);
-        }
-    }
     private void Awake()
     {
         if(instance == null)
@@ -46,6 +34,19 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Initialize()
+    {
+        _audioClips = new Dictionary<string, AudioClip>();
+        foreach (var musicObject in musicObjects)
+        {
+            _audioClips.Add(musicObject.musicType.ToString(), musicObject.clip);
+        }
+        foreach (var SFXObject in SFXObjects)
+        {
+            _audioClips.Add(SFXObject.sfxType.ToString(), SFXObject.clip);
+        }
+    }
+
     public void PlayAudio(MusicType musicType)
     {
         try
