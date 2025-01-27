@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773bbb2219be9344494a13caba6979e0, type: 3}
+  m_Name: TheBeginning
+  m_EditorClassIdentifier: 
+  NextStoryScene: {fileID: 11400000, guid: 9e4586b7ce9f2df439a6225780ab0588, type: 2}
+  SentencesList:
+  - text: "Teknikens V\xE4rld -lehti on julkaissut taulukon Euroopan viime vuoden
+      suosituimmista automallista. Listauksessa on mukana kaikkiaan 50 automallia. 
+      K\xE4rjess\xE4 on Tesla Model Y ja kakkosena Dacia Sandero. Kolmanneksi suosituin
+      on Volkswagen T-Roc ja nelj\xE4nten\xE4 Renault Clio. N\xE4it\xE4 nelj\xE4\xE4
+      merkki\xE4 on myyty viime vuonna yli 200 000 kappaletta.wf f      ff     f"
+    speaker: {fileID: 11400000, guid: 354648a8f4d7e0b42848355753f32753, type: 2}
+  - text: "Teknikens V\xE4rld -lehti on julkaissut taulukon Euroopan viime vuoden
+      suosituimmista automallista. Listauksessa on mukana kaikkiaan 50 automallia. 
+      K\xE4rjess\xE4 on Tesla Model Y ja kakkosena Dacia Sandero. Kolmanneksi suosituin
+      on Volkswagen T-Roc ja nelj\xE4nten\xE4 Renault Clio. N\xE4it\xE4 nelj\xE4\xE4
+      merkki\xE4 on myyty viime vuonna yli 200 000 kappaletta.wf f      ff     f"
+    speaker: {fileID: 11400000, guid: 3df2080a8ca6d7a4b92285d3ec88705d, type: 2}
